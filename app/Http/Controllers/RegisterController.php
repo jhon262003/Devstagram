@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -17,7 +19,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         //Modificar el request
-        $request->$request->add(['username' => Str::slug($request->$username)]);
+        $request->request->add(['username' => Str::slug($request->username)]);
 
         //Validación en la BD 
         $request->validate([
@@ -42,7 +44,7 @@ class RegisterController extends Controller
         //     'password' => $request->password
         // ]);
         //Segunda Forma
-        auth()->attempt([$request->only('email', 'password')]);
+        Auth::attempt($request->only('email', 'password'));
         
         //Rederigir
         return redirect()->route('post.index');

@@ -27,6 +27,9 @@ return new class extends Migration
             Recordatorio cuando subes al git la carpeta vendedor no se sube y esla carpeta de las dependencia para que el php artisan funcione
             se debe de volver a generar en la consola con "composer install", en la misma ruta del archivo (RECORDAR QUE LAS VERSIONES DEL COMPOSER Y EL PHP "COINCIDAN")
 
+            Las carpetas vendedor, .env, lang; su informacion no puede ser subida al repositorio por lo cual se debe de generar
+                la de .env debes de traerla de un proyecto anterior andemas que en la consola debes de ejecutar "php artisan key:generate"
+                la de lang tienes que tambien traerlo de un proyecto anterior
         */
     }
 
