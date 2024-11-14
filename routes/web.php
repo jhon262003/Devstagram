@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,5 @@ Route::get('/{user:username}', [PostController::class, 'index'])->middleware('is
 */
 
 Route::get('/posts/create', [PostController::class, 'create'])->middleware('is_admin')->name('post.create');
+
+Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
